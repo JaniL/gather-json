@@ -1,7 +1,9 @@
 var restify = require('restify');
 var irc = require('irc');
 
-var client = new irc.Client('irc.quakenet.org', 'botenjson', {
+var botNick = 'botenjson';
+
+var client = new irc.Client('irc.quakenet.org', botNick, {
     channels: ['#gather.fi'],
 });
 
@@ -18,11 +20,21 @@ var formatTopic = function(topic) {
 	var splitted = topic.split(' ');
 	var map = splitted[1].replace(':','');
 	var players = splitted[2].split(',');
+	if (players[0] == "0/12") {
+		players = [];
+	}
 	return {
 		map: map,
 		players: players
 	};
 };
+
+client.addListener('join#gather.fi', function(nick,message) {
+	if (nick == botNick) {
+		//client.say('#gather.fi','!hl off');
+		setTimeout(client.say,10000,'#gather.fi','!hl off');
+	}
+});
 
 client.addListener('topic', function(channel,topic,nick,message) {
 	console.log(topic);
