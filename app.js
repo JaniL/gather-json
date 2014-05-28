@@ -2,7 +2,7 @@ var restify = require('restify');
 var irc = require('irc');
 
 var client = new irc.Client('irc.quakenet.org', 'botenjson', {
-    channels: ['#nodegather'],
+    channels: ['#gather.fi'],
 });
 
 var gatherTopic = {
