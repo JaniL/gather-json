@@ -51,7 +51,7 @@ client.addListener('topic', function(channel,topic,nick,message) {
 
 client.addListener('message' + channel, function(nick,text,message) {
 	// If the GatherFI announces that the game starts, this will update the information about the last played game.
-	if (nick == "GatherFI" && text.indexOf("Gatheri alkaa!")) {
+	if (nick == "GatherFI" && text.indexOf("Gatheri alkaa!") === 0) {
 		lastPlayed = new Date() / 1000;
 	}
 });

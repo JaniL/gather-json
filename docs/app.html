@@ -201,7 +201,7 @@ client.addListener(<span class="hljs-string">'message'</span> + channel, <span c
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">if</span> (nick == <span class="hljs-string">"GatherFI"</span> &amp;&amp; text.indexOf(<span class="hljs-string">"Gatheri alkaa!"</span>)) {
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">if</span> (nick == <span class="hljs-string">"GatherFI"</span> &amp;&amp; text.indexOf(<span class="hljs-string">"Gatheri alkaa!"</span>) === <span class="hljs-number">0</span>) {
 		lastPlayed = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>() / <span class="hljs-number">1000</span>;
 	}
 });</pre></div></div>
