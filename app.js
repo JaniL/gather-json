@@ -48,7 +48,10 @@ function respond(req, res, next) {
   next();
 }
 
-var server = restify.createServer();
+var server = restify.createServer({ name: 'gather-json', version: '0.2.0'});
+server.use(restify.queryParser());
+server.use(restify.jsonp());
+server.use(restify.gzipResponse());
 server.get('/gatherStatus', respond);
 server.head('/gatherStatus', respond);
 
