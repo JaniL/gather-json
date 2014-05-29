@@ -58,8 +58,10 @@ client.addListener('message' + channel, function(nick,text,message) {
 
 // And here comes the restify stuff that hosts the API!
 function respond(req, res, next) {
-  res.send(gatherTopic);
-  next();
+	var heh = gatherTopic;
+	heh['lastPlayed'] = lastPlayed;
+	res.send(gatherTopic);
+	next();
 }
 
 var server = restify.createServer({ name: 'gather-json', version: '0.2.0'});

@@ -220,8 +220,10 @@ client.addListener(<span class="hljs-string">'message'</span> + channel, <span c
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">respond</span><span class="hljs-params">(req, res, next)</span> {</span>
-  res.send(gatherTopic);
-  next();
+	<span class="hljs-keyword">var</span> heh = gatherTopic;
+	heh[<span class="hljs-string">'lastPlayed'</span>] = lastPlayed;
+	res.send(gatherTopic);
+	next();
 }
 
 <span class="hljs-keyword">var</span> server = restify.createServer({ name: <span class="hljs-string">'gather-json'</span>, version: <span class="hljs-string">'0.2.0'</span>});
